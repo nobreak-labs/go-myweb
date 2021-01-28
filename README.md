@@ -53,3 +53,10 @@ MESSAGE="Hello Myweb" ./myweb
 Hello Myweb!
 localhost
 ```
+
+### Health Check
+```http://X.X.X.X/health```
+- Default Response: 200
+
+```http://X.X.X.X/health?code=N```
+- Specify Response: N
