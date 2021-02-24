@@ -85,29 +85,32 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 	//Printing: welcome message with hostname
 	fmt.Fprintf(w, welcomeMessage())
 	fmt.Fprintf(w, GetHostname())
+	fmt.Fprintln(w)
 
 	if detailNum >= 1 || detail == "header" {
 		//Printing: http request header (method, url, protocol)
 		fmt.Fprintln(w)
-		fmt.Fprintf(w, "[Request Headers]")
-		fmt.Fprintf(w, "\n\t%v %v %v\n", r.Method, r.URL, r.Proto)
+		fmt.Fprintf(w, "[Request Headers]\n")
+		fmt.Fprintf(w, "\t%v %v %v\n", r.Method, r.URL, r.Proto)
 		for k, v := range r.Header {
 			fmt.Fprintf(w, "\t%v: %v\n", k, v)
 		}
 	}
 	if detailNum >= 2 || detail == "client" {
 		//Printing: request host & remote address
-		fmt.Fprintf(w, "[Client Informations]")
-		fmt.Fprintf(w, "\n\tHost: %v", r.Host)
-		fmt.Fprintf(w, "\n\tRemoteAddr: %v\n", r.RemoteAddr)
+		fmt.Fprintln(w)
+		fmt.Fprintf(w, "[Client Informations]\n")
+		fmt.Fprintf(w, "\tHost: %v\n", r.Host)
+		fmt.Fprintf(w, "\tRemoteAddr: %v\n", r.RemoteAddr)
 	}
 	if detailNum >= 3 || detail == "container" {
 		//Printing: container information
-		fmt.Fprintf(w, "[Container Informations]")
-		fmt.Fprintf(w, "\n\tHostname: %v", GetHostname())
-		fmt.Fprintf(w, "\n\tIP: %v", GetOutboundIP())
-		fmt.Fprintf(w, "\n\tDNS: %v", GetDNSServer())
-		fmt.Fprintf(w, "\n\tUptime: %v", GetUptime())
+		fmt.Fprintln(w)
+		fmt.Fprintf(w, "[Container Informations]\n")
+		fmt.Fprintf(w, "\tHostname: %v\n", GetHostname())
+		fmt.Fprintf(w, "\tIP: %v\n", GetOutboundIP())
+		fmt.Fprintf(w, "\tDNS: %v\n", GetDNSServer())
+		fmt.Fprintf(w, "\tUptime: %v\n", GetUptime())
 	}
 }
 
