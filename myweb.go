@@ -83,6 +83,7 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//Printing: welcome message with hostname
+	fmt.Fprintf(w, "===Version 1.0===\n")
 	fmt.Fprintf(w, welcomeMessage())
 	fmt.Fprintf(w, GetHostname())
 	fmt.Fprintln(w)
