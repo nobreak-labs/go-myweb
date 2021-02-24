@@ -26,13 +26,16 @@ localhost
 ```
 Hello World!
 localhost
+
 [Request Headers]
 	GET /?detail=3 HTTP/1.1
 	User-Agent: [curl/7.64.1]
 	Accept: [*/*]
+
 [Client Informations]
 	Host: localhost:8080
 	RemoteAddr: [::1]:62949
+	
 [Container Informations]
 	Hostname: Ryan-MBP.local
 	IP: 192.168.0.12
