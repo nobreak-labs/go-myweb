@@ -30,6 +30,6 @@ RUN cp /source/myweb .
 EXPOSE 8080
 
 # Build a scratch image
-FROM scratch
+FROM alpine
 COPY --from=gobuilder /release/myweb /
 ENTRYPOINT ["/myweb"]
