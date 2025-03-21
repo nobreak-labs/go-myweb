@@ -1,10 +1,13 @@
 FROM golang:alpine AS gobuilder
 
+# Set ARG for architecture
+ARG TARGETARCH
+
 # Set Golang environmet variables
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
     GOOS=linux \
-    GOARCH=amd64
+    GOARCH=$TARGETARCH
 
 # Move to working directory /source
 WORKDIR /source
@@ -30,6 +33,6 @@ RUN cp /source/myweb .
 EXPOSE 8080
 
 # Build a scratch image
-FROM alpine
+FROM alpine AS release
 COPY --from=gobuilder /release/myweb /
 ENTRYPOINT ["/myweb"]
