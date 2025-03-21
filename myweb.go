@@ -13,7 +13,7 @@ import (
 	"github.com/shirou/gopsutil/host"
 )
 
-//GetOutboundIP function gets Outbound IP
+// GetOutboundIP function gets Outbound IP
 func GetOutboundIP() net.IP {
 	conn, err := net.Dial("udp", "8.8.8.8:80")
 	checkErr(err)
@@ -24,14 +24,14 @@ func GetOutboundIP() net.IP {
 	return localAddr.IP
 }
 
-//GetHostname function gets hostname
+// GetHostname function gets hostname
 func GetHostname() string {
 	h, err := os.Hostname()
 	checkErr(err)
 	return h
 }
 
-//GetUptime function gets system uptime
+// GetUptime function gets system uptime
 func GetUptime() string {
 	t, err := host.Uptime()
 	checkErr(err)
@@ -45,7 +45,7 @@ func GetUptime() string {
 	return upt
 }
 
-//GetDNSServer function gets DNS Server & Search Domain
+// GetDNSServer function gets DNS Server & Search Domain
 func GetDNSServer() string {
 	r, err := dns.ClientConfigFromFile("/etc/resolv.conf")
 	checkErr(err)
@@ -54,14 +54,14 @@ func GetDNSServer() string {
 	return resolver
 }
 
-//checkErr is cheking errors
+// checkErr is cheking errors
 func checkErr(err error) {
 	if err != nil {
 		log.Fatalln(err)
 	}
 }
 
-//rootHandler function
+// rootHandler function
 func RootHandler(w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
 		log.Fatalln(err)
@@ -115,7 +115,7 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//healthCheckHandler function
+// healthCheckHandler function
 func HealthCheckHandler(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
 	code := query.Get("code")
@@ -160,7 +160,7 @@ func HealthCheckHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//welcomeMessage
+// welcomeMessage
 func welcomeMessage() string {
 	m := os.Getenv("MESSAGE")
 	if m == "" {

@@ -1,6 +1,6 @@
 # 변수 정의
 IMAGE_NAME := ghcr.io/c1t1d0s7/go-myweb
-TAG := latest
+TAG := v2.0
 PLATFORMS := linux/amd64,linux/arm64
 GITHUB_USERNAME ?= $(shell git config --get user.name)
 
