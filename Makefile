@@ -1,5 +1,5 @@
 # 변수 정의
-IMAGE_NAME := ghcr.io/c1t1d0s7/go-myweb
+IMAGE_NAME := ghcr.io/nobreak-labs/go-myweb
 TAG := alpine
 PLATFORMS := linux/amd64,linux/arm64
 GITHUB_USERNAME ?= $(shell git config --get user.name)
